@@ -1,0 +1,139 @@
+#joow-sidebar {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	top: 0;
+	right: 0;
+	padding: 20px;
+	width: 360px;
+	height: 100%;
+	color: #333;
+	background-color: #fff;
+	border-left: 1px solid #ccc;
+	overflow-y: auto;
+	z-index: 9998;
+}
+
+#joow-welcom {
+	margin-block-start: 0.2em;
+	margin-block-end: 0.2em;
+}
+
+#joow-welcom h1 {
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+.close-button {
+
+	position: fixed;
+	top: 30px;
+	right: 30px;
+	width: 30px;
+	height: 30px;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 1;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	z-index: 99999;
+}
+
+.close-button:hover {
+	background-color: rgba(0, 0, 0, 0.9);
+}
+
+#joow-resizer {
+	width: 20px;
+	cursor: col-resize;
+	/* 初始为水平拖拽图标 */
+	border-left: 1px solid #ccc;
+	height: 100%;
+	position: absolute;
+	left: -2px;
+	/* 调整resizer到左侧边缘 */
+	transition: left 0.2s ease-out;
+	/* 添加左侧移动的过渡动画 */
+	top: 0;
+	z-index: 10000;
+}
+
+#joow-drop-overlay {
+	position: absolute;
+	top: 15px;
+	/* 留出顶部边距 */
+	right: 15px;
+	/* 留出右侧边距 */
+	bottom: 15px;
+	/* 留出底部边距 */
+	left: 15px;
+	/* 留出左侧边距 */
+	border: 2px dashed #aaa;
+	padding: 50px;
+	z-index: 9999;
+	border-radius: 15px;
+	background-color: rgba(220, 220, 220);
+	display: none;
+	transition: opacity 0.2s ease-out;
+	/* 添加过渡动画 */
+}
+
+#joow-drop-overlay h1 {
+	text-align: center;
+}
+
+#joow-drop-overlay.dragover {
+	background-color: rgba(220, 220, 220);
+}
+
+.card-item {
+	font-size: 12px;
+	max-height: 86px;
+	/* 控制最大高度为四行文本的高度 */
+	line-height: 18px;
+	/* 行高为文本行高，根据字体大小调整 */
+	border-radius: 6px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	padding: 10px;
+	margin-bottom: 10px;
+	transition: background-color 0.3s ease-out;
+	/* 添加背景色变化的过渡动画 */
+	position: relative;
+	/* 确保删除按钮可以定位在 card-item 内部 */
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+}
+
+.card-item:hover {
+	background-color: #e2e2e2;
+}
+
+.card-item:hover>.delete-button {
+	display: block;
+	/* 在 hover 时显示删除按钮 */
+}
+
+.delete-button {
+	display: none;
+	/* 默认隐藏删除按钮 */
+	position: absolute;
+	/* 绝对定位，可以放在 card-item 右上角 */
+	top: 5px;
+	right: 5px;
+	background-color: transparent;
+	border: none;
+	color: rgb(170, 0, 0);
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.delete-button:hover {
+	color: rgb(255, 0, 0);
+}
